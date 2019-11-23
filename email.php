@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['TenDangNhap'])) {
-    header("Location: login.php");
+    header("Location: form_login.php");
 }
 
 ?>
@@ -26,7 +26,7 @@ if (!isset($_SESSION['TenDangNhap'])) {
                 <a class="navbar-brand" href="email.php">Gửi thông báo</a>
             </div>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="index_1.php"><span class="glyphicon glyphicon-user"></span><?php echo $_SESSION["Admin"]; ?></a></li>
+                <li><a href="index_ad.php"><span class="glyphicon glyphicon-user"></span><?php echo $_SESSION["Admin"]; ?></a></li>
                 <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Đăng xuất</a></li>
             </ul>
         </div>

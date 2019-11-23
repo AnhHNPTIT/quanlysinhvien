@@ -7,12 +7,12 @@ include_once "connect-to-sql.php";
 
 if (isset($_GET['detail_sv'])) {
     $detail_sv = $_GET['detail_sv'];
-    $detail_sinhvien = $connection->query("select * from sinhvien where MaSV = '" . $detail_sv . "'");
+    $detail_sinhvien = $connection->query("SELECT * FROM sinhvien WHERE MaSV = '" . $detail_sv . "'");
     if ($detail_sinhvien->num_rows <= 0) {
         header("Location: index.php");
     }
     $detail_sinhvien = $detail_sinhvien->fetch_assoc();
-    $lop = $connection->query("select * from lop where MaLop = '" . $detail_sinhvien['MaLop'] . "'")->fetch_assoc();
+    $lop = $connection->query("SELECT * FROM lop WHERE MaLop = '" . $detail_sinhvien['MaLop'] . "'")->fetch_assoc();
 } else {
     header("Location: index.php");
 }
@@ -67,7 +67,7 @@ if (isset($_GET['detail_sv'])) {
                     <h3 class="">Quê quán: <b><?= $detail_sinhvien['QueQuan'] ?></b></h3>
                     <h3 class="">Email: <b><?= $detail_sinhvien['Email'] ?></b></h3>
                     <h3 class="">Lớp: <b><?= $lop['TenLop'] ?></b></h3><br>
-                    <a href="index.php"><button type="button" class="btn btn-primary">Quay lại</button></a>
+                    <a href="qlsv.php"><button type="button" class="btn btn-primary">Quay lại</button></a>
                 </div>
             </div>
         </div>

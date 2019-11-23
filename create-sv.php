@@ -4,7 +4,7 @@ if (!isset($_SESSION['TenDangNhap'])) {
     header("Location: form_login.php");
 }
 include_once "connect-to-sql.php";
-$lop = $connection->query("select * from lop");
+$lop = $connection->query("SELECT * FROM lop");
 
 if (isset($_POST['submit'])){
 
@@ -15,7 +15,7 @@ if (isset($_POST['submit'])){
         if (move_uploaded_file($_FILES["Anh"]["tmp_name"], $target_file))
             $sinhvien['Anh'] = $target_file;
     }
-    $sql = "insert into sinhvien values 
+    $sql = "INSERT INTO sinhvien VALUES 
     ('".$sinhvien['MaSV']."','".$sinhvien['HoTen']."','".$sinhvien['GioiTinh']."','".$sinhvien['NgaySinh']."','".$sinhvien['QueQuan']."','".$sinhvien['Email']."','".$sinhvien['MaLop']."','".$sinhvien['Anh']."')";
 
     if ($connection->query($sql)){

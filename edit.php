@@ -6,11 +6,11 @@ if (!isset($_SESSION['TenDangNhap'])) {
 include_once "connect-to-sql.php";
 
 $lop = $connection->query("SELECT * FROM lop");
-if (isset($_GET['edit_sv'])) {
-    $edit_sv = $_GET['edit_sv'];
+if (isset($_SESSION['MaSV'])) {
+    $edit_sv = $_SESSION['MaSV'];
     $edit_sinhvien = $connection->query("SELECT * FROM sinhvien WHERE MaSV = '" . $edit_sv . "'");
     if ($edit_sinhvien->num_rows <= 0) {
-        header("Location: index.php");
+        header("Location: index_sv.php");
     }
     $edit_sinhvien = $edit_sinhvien->fetch_assoc();
 }
@@ -33,7 +33,7 @@ if (isset($_POST['submit'])) {
     Email= '" . $sinhvien['Email'] . "' , MaLop= '" . $sinhvien['MaLop'] . "', Anh= '" . $sinhvien['Anh'] . "' where MaSV = '" . $edit_sv . "'";
 
     if ($connection->query($sql)) {
-        header("Location: edit-sv.php");
+        header("Location: edit.php");
     }
 }
 
@@ -50,14 +50,31 @@ if (isset($_POST['submit'])) {
 </head>
 <body>
 
- <nav class="navbar navbar-inverse container-fluid">
+<nav class="navbar navbar-inverse container-fluid">
     <div class="container">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="">Quản lý Sinh Viên</a>
-        </div>
-        <ul class="nav navbar-nav navbar-right">
-            <li><a href="#"><span class="glyphicon glyphicon-user"></span><?php echo $_SESSION["Admin"]; ?></a></li>
-            <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Đăng xuất</a></li>
+      <div class="dropdown navbar-right" style="margin-top: 8px;">
+        <button class="btn btn-primary dropdown-toggle" type="button" id="about-us" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <?php echo strtoupper($_SESSION['MaSV']); ?>
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="about-us" style="margin-top: 7px;">
+            <li style="padding-top: 2px;">
+                <a class="dropdown-item" href="edit.php">
+                    <i class="glyphicon glyphicon-saved"></i>
+                    Cập nhật thông tin
+                </a>
+            </li>
+            <li style="padding-top: 2px;">
+                <a class="dropdown-item" href="#">
+                    <i class="glyphicon glyphicon-refresh"></i>
+                    Đổi mật khẩu
+                </a>
+            </li>
+            <li style="padding-top: 2px;">
+                <a href="logout.php"><i class="glyphicon glyphicon-log-out"></i> 
+                    Đăng xuất
+                </a>
+            </li>
         </ul>
     </div>
 </nav>
@@ -152,7 +169,7 @@ if (isset($_POST['submit'])) {
                     <div class="form-group">
                         <div class="col-md-offset-4 col-md-4">
                             <button name="submit" class="btn btn-primary">Cập nhật</button>
-                            <a href="qlsv.php"><button type="button" class="btn btn-primary">Hủy</button></a>
+                            <a href="index_sv.php"><button type="button" class="btn btn-primary">Hủy</button></a>
                         </div>
                     </div>
                 </fieldset>

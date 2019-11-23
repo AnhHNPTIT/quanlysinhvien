@@ -4,7 +4,7 @@ if (!isset($_SESSION['TenDangNhap'])) {
   header("Location: form_login.php");
 } 
 include_once "connect-to-sql.php";
-$data = $connection->query("select * from monhoc");?>
+$data = $connection->query("SELECT * FROM monhoc");?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,7 +24,7 @@ $data = $connection->query("select * from monhoc");?>
         <a class="navbar-brand" href="">Quản lý môn học</a>
       </div>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="index_1.php"><span class="glyphicon glyphicon-user"></span><?php echo $_SESSION["Admin"]; ?>  </a></li>
+        <li><a href="index_ad.php"><span class="glyphicon glyphicon-user"></span><?php echo $_SESSION["Admin"]; ?>  </a></li>
         <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Đăng xuất</a></li>
       </ul>
     </div>

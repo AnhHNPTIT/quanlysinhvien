@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
 		if (move_uploaded_file($_FILES["Anh"]["tmp_name"], $target_file))
 			$sinhvien['Anh'] = $target_file;
 	}
-	$sql = "insert into sinhvien values 
+	$sql = "INSERT INTO sinhvien VALUES 
 	('".$sinhvien['MaSV']."','".$sinhvien['HoTen']."','".$sinhvien['GioiTinh']."','".$sinhvien['NgaySinh']."','".$sinhvien['QueQuan']."','".$sinhvien['Email']."','".$sinhvien['MaLop']."','".$sinhvien['Anh']."')";
 		header('Content-type: application/json');
 	if ($connection->query($sql)){

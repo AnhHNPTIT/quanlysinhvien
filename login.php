@@ -9,7 +9,7 @@ if(isset($_POST['TenDangNhap'])&& isset($_POST['MatKhau'])) {
   $TenDangNhap = $_POST['TenDangNhap'];
   $MatKhau = $_POST['MatKhau'];
 
-  $sql = "select * from taikhoan where TenDangNhap = '".$TenDangNhap."' and MatKhau = '".$MatKhau."'";
+  $sql = "SELECT * FROM taikhoan WHERE TenDangNhap = '".$TenDangNhap."' AND MatKhau = '".$MatKhau."'";
   $result = $connection->query($sql);
   header('Content-type: application/json');
   if ($result->num_rows > 0){
