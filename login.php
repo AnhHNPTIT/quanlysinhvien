@@ -2,11 +2,9 @@
 include_once "connect-to-sql.php";
 include_once "constant.php";
 
-echo STUDENT;
-
 session_start();
 
-if(isset($_POST['TenDangNhap'])&&isset($_POST['MatKhau'])) {
+if(isset($_POST['TenDangNhap'])&& isset($_POST['MatKhau'])) {
 
   $TenDangNhap = $_POST['TenDangNhap'];
   $MatKhau = $_POST['MatKhau'];
@@ -19,15 +17,15 @@ if(isset($_POST['TenDangNhap'])&&isset($_POST['MatKhau'])) {
     if($taikhoan['NhomQuyen'] == STUDENT){
       $_SESSION['TenDangNhap'] = $TenDangNhap;
       $_SESSION['MaSV'] = $taikhoan['MaSV'];
+      echo json_encode(['is' => 'success', 'role' => 'student']);
     } else {
       $_SESSION['TenDangNhap'] = $TenDangNhap;  
       $_SESSION["Admin"] = "Admin";
+      echo json_encode(['is' => 'success', 'role' => 'admin']);
     }
-    
-    
   }
   else {
-    echo json_encode(['is' => 'fails', 'uncomplete' => 'Thất bại!']); 
+    echo json_encode(['is' => 'fails']); 
   }
 }
 ?>

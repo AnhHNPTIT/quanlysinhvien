@@ -91,10 +91,9 @@ $data = $connection->query("select * from sinhvien");
               <td>
                 <div class="form-group">
                   <div class="col-md-4">
-                    <select id="kieu_san_pham" name="DiemDanh" class="form-control">
+                    <select id="diemdanh" name="DiemDanh" class="form-control">
                       <option value="1" >Có mặt</option>
                       <option value="0" >Vắng mặt</option>
-
                     </select>
                   </div>
                 </div>
