@@ -108,5 +108,64 @@ if (isset($_POST['TenDangNhap'])&&isset($_POST['MatKhau'])) {
 </div>
 
 </body>
+<script src="public/js/sweetalert.min."></script>
+<script src="public/js/jquery.min.js"></script>
+<script src="public/js/bootstrap.min.js"></script>
+<script src="public/js/datatables.min.js"></script>
+<script>
+  $(document).ready(function () {
+    $('#myTable').DataTable();
+  });
 
+  $(document).ready(function(){
+     $('#btn-send').click(function(){
+        if($('#monhoc').val() != " "){
+            $.ajax({
+             type: "POST",
+             url: "demo_getsv.php",
+             data: {"MonHoc": $('#monhoc').val()},
+             success: function(response){
+                var html = '';  
+                if(response){
+                  var data = JSON.parse(response);
+                  for (key in data){
+                     html += '<tr>';
+                     html += '<td>'+data[key].MaSV+'</td>';
+                     html += '<td>'+data[key].HoTen+'</td>';
+                     html += '<td><img src="'+data[key].Anh+'" style= "width: 100px; height: auto;"/></td>';
+                     html += '<td>';
+                     html += '<div class="form-group">';
+                     html += '<div class="col-md-4">';
+                     html += '<select id="kieu_san_pham" name="DiemDanh" class="form-control">';
+                     html += '<option value="1" >Có mặt</option>';
+                     html += '<option value="0" >Vắng mặt</option>';
+                     html += '</select>';
+                     html += '</div>';
+                     html += '</div>';
+                     html += '</td>';
+                  }
+                  $("#table_data tr").remove(); 
+                  $('#table_data').append(html);
+                }
+                else{
+                  $("#table_data tr").remove(); 
+                  swal({
+                      title: "Danh sách trống",
+                      text: "Chưa có sinh viên",
+                      icon: "warning"
+                  })
+                }
+              }
+            })
+        }
+        else{
+          swal({
+              title: "Thất bại!",
+              text: "Vui lòng chọn lớp học",
+              icon: "error"
+          })
+        }
+     })
+  });
+</script>
 </html>
