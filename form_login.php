@@ -40,7 +40,7 @@
                 </div>
                 <form class="user" action="" >
                   <div class="form-group">
-                    <input type="text" class="form-control form-control-user" id="TenDangNhap" aria-describedby="emailHelp" name="TenDangNhap" placeholder="Tên đăng nhập">
+                    <input type="text" class="form-control form-control-user" id="TenDangNhap" name="TenDangNhap" placeholder="Tên đăng nhập">
                   </div>
                   <div class="form-group">
                     <input type="password" class="form-control form-control-user" id="MatKhau" name="MatKhau" placeholder="Mật khẩu">

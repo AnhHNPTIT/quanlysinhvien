@@ -42,7 +42,7 @@
                   <br>
                   <form class="user">
                   
-                    <a href="index.php" class="btn btn-primary btn-user btn-block">
+                    <a href="qlsv.php" class="btn btn-primary btn-user btn-block">
                       Quản lý sinh viên
                     </a><hr>
                       <a href="show-mh.php" class="btn btn-primary btn-user btn-block">

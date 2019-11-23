@@ -32,7 +32,7 @@ if (isset($_GET['detail_sv'])) {
   <nav class="navbar navbar-inverse container-fluid">
     <div class="container">
       <div class="navbar-header">
-        <a class="navbar-brand" href="http://localhost:8888/qlsv/">Quản lý Sinh Viên</a>
+        <a class="navbar-brand" href="">Quản lý Sinh Viên</a>
     </div>
     <ul class="nav navbar-nav navbar-right">
 <li><a href="#"><span class="glyphicon glyphicon-user"></span><?php echo $_SESSION["Admin"]; ?>  </a></li>

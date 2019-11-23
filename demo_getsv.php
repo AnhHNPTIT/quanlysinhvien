@@ -2,7 +2,7 @@
 session_start();
 $output = [];
 if (!isset($_SESSION['TenDangNhap'])) {
-  header("Location: http://localhost:8888/qlsv/login.php");
+  header("Location: login.php");
 }
 include_once "connect-to-sql.php";
 if(isset($_POST['MonHoc'])){
