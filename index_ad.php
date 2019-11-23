@@ -1,3 +1,10 @@
+<?php 
+session_start();
+if (!isset($_SESSION['TenDangNhap'])) {
+  header("Location: form_login.php");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -37,15 +44,15 @@
                 <div class="p-5">
                   <div class="text-center">
                     <h1 class="h2 text-gray-900 mb-2"><strong>Chức năng</strong></h1>
-            
+                    
                   </div>
                   <br>
                   <form class="user">
-                  
+                    
                     <a href="qlsv.php" class="btn btn-primary btn-user btn-block">
                       Quản lý sinh viên
                     </a><hr>
-                      <a href="show-mh.php" class="btn btn-primary btn-user btn-block">
+                    <a href="show-mh.php" class="btn btn-primary btn-user btn-block">
                       Xem môn học
                     </a><hr>
                     <a href="email.php" class="btn btn-primary btn-user btn-block">

@@ -2,7 +2,7 @@
 session_start();
 $output = [];
 if (!isset($_SESSION['TenDangNhap'])) {
-  header("Location: login.php");
+  header("Location: form_login.php");
 }
 include_once "connect-to-sql.php";
 if(isset($_POST['MonHoc'])){

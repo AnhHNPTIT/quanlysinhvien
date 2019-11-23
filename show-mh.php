@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['TenDangNhap'])) {
-  header("Location: login.php");
+  header("Location: form_login.php");
 } 
 include_once "connect-to-sql.php";
 $data = $connection->query("select * from monhoc");?>
@@ -110,7 +110,7 @@ $data = $connection->query("select * from monhoc");?>
           <div class="form-group">
             <label class="col-md-4 control-label" for="singlebutton">Export data</label>
             <div class="col-md-4">
-              <a href="demo_export.php"><button type="button" class="btn btn-primary" id="btn-down">Export</button></a>
+              <a href="export-mh.php"><button type="button" class="btn btn-primary" id="btn-down">Export</button></a>
             </div>
           </div>
         </body>

@@ -1,5 +1,8 @@
 <?php
-
+session_start();
+if (!isset($_SESSION['TenDangNhap'])) {
+    header("Location: form_login.php");
+}
 include_once "connect-to-sql.php";
 
 if (isset($_GET['detail_sv'])) {
