@@ -91,10 +91,20 @@
    success: function(response){
     if(response.is === 'fails'){
         swal({
-          title: "Thất bại",
-          text: "Tên đăng nhập hoặc mật khẩu không chính xác!",
-          icon: "error"
+          title: "Thất bại!",
+          text: "Tên đăng nhập hoặc mật khẩu không chính xác",
+          icon: "error",
+          buttons: false,
+          timer: 3000,
       })
+    }
+    if(response.is === 'success'){
+        if(response.role === 'student'){
+          window.location.href = 'index_sv.php';
+        }
+        if(response.role === 'admin'){
+          window.location.href = 'index_ad.php';
+        }
     }
 }
 })

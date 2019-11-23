@@ -1,1 +1,2 @@
-connect-to-sql.php
+# ignore all logs
+*.connect-to-sql.php
