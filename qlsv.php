@@ -33,7 +33,10 @@ if (isset($_GET['delete_sv'])) {
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="public/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="public/css/datatables.min.css"/>
-
+  <link rel="stylesheet" type="text/css" href="public/css/back-top.css"/>
+  <link rel="stylesheet" type="text/css" href="public/css/back-down.css"/>
+<!-- lib jquery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 <body>
 
@@ -114,64 +117,94 @@ if (isset($_GET['delete_sv'])) {
         </style>
       </div>
     </div>
-  </div>
-
-</body>
-<script src="public/js/sweetalert.min.js"></script>
-<script src="public/js/jquery.min.js"></script>
-<script src="public/js/bootstrap.min.js"></script>
-<script src="public/js/datatables.min.js"></script>
-<script>
-  $(document).ready(function () {
-    $('#myTable').DataTable();
-  });
-
-  $('.btn-delete').click(function(){
-    var _this = $(this);
-    var masv = $(this).attr('data-id');
-    var form_data = new FormData();
-    form_data.append("delete_sv", masv);
-    swal({
-      title: "Bạn chắc chắn?",
-      text: "Bạn có thực sự muốn xóa không?",
-      icon: "warning",
-      buttons: true,
-      buttons: ["Hủy", "Đồng ý"]
-    })
-    .then(confirm => {
-      if(confirm){
-        $.ajax({
-          type: 'post',
-          url : 'delete.php',
-          data: form_data,
-          contentType: false,
-          processData: false,
-          success: function(response){
-            if(response.is === 'success'){
-              _this.parent().parent().remove();
-              swal({
-                title: response.complete,
-                text: "Đã xóa thành công",
-                icon: "success"
-              })
-            }
-            if(response.is === 'fails'){
-              swal({
-                title: response.uncomplete,
-                text: "Xóa không thành công",
-                icon: "error"
-              })
-            }
+  </div>             
+  <p id="back-top" style=""><a id="top" href="javascript:void(0)"></a></p>
+  <p id="back-down" style=""><a id="down" href="javascript:void(0)"></a></p>
+  <script>
+          // back-top
+          $(document).scroll(function() {
+           if($(window).scrollTop() > 200) {
+             $('#back-top').css({ display: "block" });
+           }
+           else{
+            $('#back-top').css({ display: "none" });
           }
-        })
-      }
+        });
+          $('#top').click(function(){
+            window.scrollTo({top: 0, behavior: 'smooth'});
+          })
+          // back-down
+          $(document).scroll(function(){
+            if($(document).height() - $(document).scrollTop() > 1000){
+              $('#back-down').css({display: "block"});
+            }
+            else{
+              $('#back-down').css({display: "none"});
+            }
+          });
+          $('#down').click(function(){
+            window.scrollTo({top: $(document).height(), behavior: 'smooth'});
+          })
+        </script>                       
+      </div> 
+    </div>
+
+  </body>
+  <script src="public/js/sweetalert.min.js"></script>
+  <script src="public/js/jquery.min.js"></script>
+  <script src="public/js/bootstrap.min.js"></script>
+  <script src="public/js/datatables.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('#myTable').DataTable();
+    });
+
+    $('.btn-delete').click(function(){
+      var _this = $(this);
+      var masv = $(this).attr('data-id');
+      var form_data = new FormData();
+      form_data.append("delete_sv", masv);
+      swal({
+        title: "Bạn chắc chắn?",
+        text: "Bạn có thực sự muốn xóa không?",
+        icon: "warning",
+        buttons: true,
+        buttons: ["Hủy", "Đồng ý"]
+      })
+      .then(confirm => {
+        if(confirm){
+          $.ajax({
+            type: 'post',
+            url : 'delete.php',
+            data: form_data,
+            contentType: false,
+            processData: false,
+            success: function(response){
+              if(response.is === 'success'){
+                _this.parent().parent().remove();
+                swal({
+                  title: response.complete,
+                  text: "Đã xóa thành công",
+                  icon: "success"
+                })
+              }
+              if(response.is === 'fails'){
+                swal({
+                  title: response.uncomplete,
+                  text: "Xóa không thành công",
+                  icon: "error"
+                })
+              }
+            }
+          })
+        }
+      })
     })
-  })
 
- 
 
-</script>
-</html>
+
+  </script>
+  </html>
 
 
 
