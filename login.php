@@ -108,7 +108,7 @@ if (isset($_POST['TenDangNhap'])&&isset($_POST['MatKhau'])) {
 </div>
 
 </body>
-<script src="public/js/sweetalert.min."></script>
+<script src="public/js/sweetalert.min.js"></script>
 <script src="public/js/jquery.min.js"></script>
 <script src="public/js/bootstrap.min.js"></script>
 <script src="public/js/datatables.min.js"></script>
