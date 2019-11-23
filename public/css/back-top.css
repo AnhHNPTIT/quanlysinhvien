@@ -6,7 +6,7 @@
     z-index: 15;
     position: fixed;
     right: 15px;
-    bottom: 100px;
+    bottom: 60px;
     background: -moz-backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;

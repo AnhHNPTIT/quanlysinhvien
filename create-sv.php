@@ -44,7 +44,7 @@ if (isset($_POST['submit'])){
                 <a class="navbar-brand" href="">Quản lý Sinh Viên</a>
             </div>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#"><span class="glyphicon glyphicon-user"></span><?php echo $_SESSION["Admin"]; ?></a></li>
+                <li><a href="index_ad.php"><span class="glyphicon glyphicon-user"></span><?php echo $_SESSION["Admin"]; ?></a></li>
                 <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Đăng xuất</a></li>
             </ul>
         </div>

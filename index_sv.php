@@ -30,12 +30,41 @@ session_start();
 
   <nav class="navbar navbar-inverse container-fluid">
     <div class="container">
+      <li class="nav navbar-nav navbar-right">
+        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <span class="glyphicon glyphicon-user"><?php echo strtoupper($_SESSION['MaSV']); ?></span> 
+        </a>
+        <!-- Dropdown - User Information -->
+        <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+          <a class="dropdown-item" href="#">
+            <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+            Cập nhật thông tin
+          </a>
+          <a class="dropdown-item" href="#">
+            <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+            Cài đặt
+          </a>
+          <a class="dropdown-item" href="#">
+            <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+            Đổi mật khẩu
+          </a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="logout.php" data-toggle="modal" data-target="#logoutModal">
+            <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+            Đăng xuất
+          </a>
+        </div>
+      </li>
+    </div>
+  
+
+    <!-- <div class="container">
       
     <ul class="nav navbar-nav navbar-right">
-<li><a href="#"><span class="glyphicon glyphicon-user"></span><?php echo $_SESSION['MaSV']; ?>  </a></li>
+<li><a href="#"><span class="glyphicon glyphicon-user"></span><?php echo strtoupper($_SESSION['MaSV']); ?>  </a></li>
             <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Đăng xuất</a></li>
         </ul>
-    </div>
+    </div> -->
 </nav>
 <div class="container">
     <div class="row">
