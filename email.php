@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['TenDangNhap'])) {
-    header("Location: http://localhost:8888/qlsv/login.php");
+    header("Location: login.php");
 }
 
 ?>
@@ -23,7 +23,7 @@ if (!isset($_SESSION['TenDangNhap'])) {
 <nav class="navbar navbar-inverse container-fluid">
         <div class="container">
             <div class="navbar-header">
-                <a class="navbar-brand" href="http://localhost:8888/qlsv/email.php">Gửi thông báo</a>
+                <a class="navbar-brand" href="email.php">Gửi thông báo</a>
             </div>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="index_1.php"><span class="glyphicon glyphicon-user"></span><?php echo $_SESSION["Admin"]; ?></a></li>
